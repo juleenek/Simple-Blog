@@ -1,9 +1,11 @@
-type Props = {};
+type Props = {
+  title: string;
+};
 
-export const Header: React.FC<Props> = () => {
+export const Header: React.FC<Props> = ({ title }) => {
   return (
-    <header>
-      <h1>Header</h1>
+    <header className='Header'>
+      <h1>{title}</h1>
     </header>
   );
 };
