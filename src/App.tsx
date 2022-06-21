@@ -9,6 +9,7 @@ import { Missing } from './Components/Missing';
 
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {format} from 'date-fns';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -39,9 +40,27 @@ function App() {
   ]);
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState();
+  const [postTitle, setPostTitle] = useState('');
+  const [postBody, setPostBody] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
+    const datetime = format(new Date(), 'MMM dd, yyyy pp');
+    const newPost = {id , title: postTitle, datetime, body: postBody};
+    const allPosts = [... posts, newPost];
+    setPosts(allPosts);
+    setPostTitle('');
+    setPostBody('');
+    navigate('/');
+  };
 
   const handleDelete = (id: number) => {
-
+    const postsList = posts.filter((post) => post.id !== id);
+    setPosts(postsList);
+    navigate('/');
   };
 
   return (
@@ -50,8 +69,22 @@ function App() {
       <Nav search={search} setSearch={setSearch} />
       <Routes>
         <Route path='/' element={<Home posts={posts} />} />
-        <Route path='/post' element={<NewPost />} />
-        <Route path='/post/:id' element={<PostPage posts={posts} handleDelete={handleDelete} />} />
+        <Route
+          path='/post'
+          element={
+            <NewPost
+              handleSubmit={handleSubmit}
+              postBody={postBody}
+              postTitle={postTitle}
+              setPostTitle={setPostTitle}
+              setPostBody={setPostBody}
+            />
+          }
+        />
+        <Route
+          path='/post/:id'
+          element={<PostPage posts={posts} handleDelete={handleDelete} />}
+        />
         <Route path='/about' element={<About />} />
         <Route path='*' element={<Missing />} />
       </Routes>

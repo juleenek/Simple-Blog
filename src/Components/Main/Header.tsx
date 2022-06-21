@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 type Props = {
   title: string;
 };
@@ -5,7 +7,9 @@ type Props = {
 export const Header: React.FC<Props> = ({ title }) => {
   return (
     <header className='Header'>
-      <h1>{title}</h1>
+      <Link to='/'>
+        <h1>{title}</h1>
+      </Link>
     </header>
   );
 };

@@ -50,6 +50,11 @@ body {
 
 .Header h1 {
   font-size: 1.5rem;
+  color: #fff;
+}
+
+.Header h1:hover {
+  color: #062931;
 }
 
 .Header svg {
@@ -223,14 +228,21 @@ a:active {
 }
 
 .PostPage button {
-  height: 48px;
-  min-width: 48px;
-  border-radius: 0.25rem;
+  height: 40px;
+  min-width: 40px;
   padding: 0.5rem;
-  font-size: 1rem;
-  background-color: red;
+  font-size: 0.7rem;
+  background-color: #000000;
   color: #fff;
   cursor: pointer;
+}
+
+.visitHome {
+  font-size: 0.7rem;
+}
+
+.PostPage button:hover {
+  background-color: #b00d0d;
 }
 
 .statusMsg {
