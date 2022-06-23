@@ -32,7 +32,9 @@ export const NewPost: React.FC<Props> = ({
           value={postBody}
           onChange={(e) => setPostBody(e.target.value)}
         />
-        <button type='submit'>Submit</button>
+        <button className='submitButton' type='submit'>
+          Submit
+        </button>
       </form>
     </main>
   );

@@ -94,7 +94,9 @@ body {
   position: absolute;
   left: -99999px;
 }
-
+.Nav{
+  padding-left: 20px;
+}
 .Nav ul {
   color: #fff;
   list-style-type: none;
@@ -214,12 +216,23 @@ a:active {
   margin-top: 1rem;
   height: 48px;
   min-width: 48px;
-  border-radius: 10px;
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
 }
 
+.newPostForm button {
+  height: 50px;
+  min-width: 40px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+}
+.newPostForm button:hover {
+  background-color: #0f7792;
+}
 .Missing h2,
 .PostPage h2,
 .Missing p,
@@ -282,13 +295,19 @@ a:active {
     padding: 0.5rem 0;
   }
 
-  .searchForm input[type='text'] {
-    margin-left: 0.5rem;
-  }
-
   .newPostForm textarea {
     height: 300px;
   }
+}
+
+#postTitle, #postBody {
+  border-radius: 0;
+  border: solid 1.5px #000;
+  margin-top: 20px;
+}
+
+#postTitle:focus, #postBody:focus {
+  border: solid 1px #23a4c5;
 }
 
 @media only screen and (min-width: 992px) {
