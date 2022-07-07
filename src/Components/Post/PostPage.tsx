@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { PostType } from '../../Types/PostType';
+import { PostType } from '../../types/PostType';
 
 type Props = {
   posts: PostType[];

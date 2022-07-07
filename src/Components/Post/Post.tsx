@@ -1,4 +1,4 @@
-import { PostType } from '../../Types/PostType';
+import { PostType } from '../../types/PostType';
 import { Link } from 'react-router-dom';
 
 type Props = {
